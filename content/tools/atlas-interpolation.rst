@@ -21,10 +21,12 @@ Generate interpolation weights for a pair of source and target meshes:
 
 .. code :: bash
 
-    $ OMP_NUM_THREADS=1 mpirun -np 4 atlas-interpolation --s.grid <sgrid> --t.grid <tgrid> --interpolation <interpolation> \
+    $ atlas-interpolation --s.grid <sgrid> --t.grid <tgrid> --interpolation <interpolation> \
         [--output-matrix|--read-matrix|--test-matrix] [--format scrip|eckit] [--output-gmsh]
 
 and optionally, apply the interpolation to a test field on the source mesh and write the interpolated field on the target mesh.
+For larger meshes, the interpolation weights can be written-out to a file and read-in later to save time when the same interpolation is applied repeatedly.
+Both writting-out and reading-in can be done in parallel by pre-appending e.g. ``OMP_NUM_THREADS=1 mpirun -np 4`` to the command above.
 
 If ``--output-matrix`` (or ``--read-matrix``) is given, the interpolation weights get written-out (or read-in) to/from the file 
 ```

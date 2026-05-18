@@ -34,6 +34,13 @@ Different FESOM and ORCA meshes are available as Atlas plugins after adding them
         require : atlas
 
     - atlas-fesom :
-        git     : ${BITBUCKET}/~nawd/atlas-fesom
-        version : main
+        git     : ${GITHUB}/ecmwf/atlas-fesom
+        version : develop
         require : atlas
+
+Before using FESOM and ORCA grids, we need to set environment variables:
+
+.. code-block:: bash
+
+    export ATLAS_ORCA_CACHING=1
+    export ATLAS_FESOM_CACHING=1

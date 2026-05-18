@@ -78,11 +78,3 @@ The ``--include-pole`` option will make the mesh generator add one extra point a
 .. figure:: {static}/tools/img/mesh3d_point.png
     :target: {static}/tools/img/mesh3d_point.png
     :width: 500 px
-
-Before using FESOM and ORCA grids, we need to set environment variables:
-
-.. code-block:: bash
-
-    export ATLAS_ORCA_CACHING=1
-    export ATLAS_FESOM_CACHING=1
-    export ATLAS_CACHE_PATH=/tmp/cache
