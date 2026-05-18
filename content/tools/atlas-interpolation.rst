@@ -47,14 +47,15 @@ A few other useful options are available. Please use the help message to learn a
 
     $ atlas-interpolation --help
 
-It is worth noting that some other interpolation methods available in Atlas can be
-better suited (see `ECMWF documentation <https://confluence.ecmwf.int/x/ITsbHg>`_).
 
 Comparison of interpolation methods available on arbitrary meshes
 =================================================================
 
 Most useful interpolation methods are available on every kind of mesh. Atlas has a few of these methods readily available.
 Whilst the conservative remapping method still require that mesh cells form a convex polygon, this is a minimal requirement met for almost every imaginable mesh these days.
+
+Experimental order of converge of interpolation methods
+-------------------------------------------------------
 
 The figure below shows the convergence of interpolation errors for different interpolation methods available in Atlas. Apart from the ``grid-box-average`` method,
 which requires a semi-structured grid of Atlas type ``StructuredGrid``, the other methods are available on any kind of unstructured grids.
@@ -69,3 +70,55 @@ from these interpolation methods.
 .. figure:: {static}/tools/img/atlas_interpolators_eoc.png
     :target: {static}/tools/img/atlas_interpolators_eoc.png
     :height: 400 px
+
+Timings of interpolation methods with and without caching
+---------------------------------------------------------
+
+The following table summarises the timing of different interpolation methods when the caching is used versus the recomputing of the interpolation weights.
+
+.. figure:: {static}/tools/img/atlas_interpolators_timing.png
+    :target: {static}/tools/img/atlas_interpolators_timing.png
+    :height: 400 px
+
+Diffusion of interpolators in a model coupler
+---------------------------------------------
+
+In a consequtive remapping (normally seen in model coupler) different interpolators can be used to retain extrema of fields.
+In one such scenario, we remap consequtively from a source grid (here, O16) to a target grid (here, O32) and back, then repeated 200 times.
+Ideally, a given initial data on the source grid would remain identical after 200 interpolations to the target grid 
+and finally back onto the source.
+
+The initial data is "the sinusoid" from Valcke et al (2022), modified to show only the one positive sinusoid as seen here for the initial data on O16.
+For visualisation ease only, we scaled the hill height by 100x.
+
+The top left is the initial data on the source grid. All other show the remapped field after 200 back-and-forth remappings.
+The top right shows the result for ``grid-box-method`` which is the only non-parallel interpolator here.
+
+The nearest neighbour and the conservative second order spherical polygon interpolators are the least diffusive methods.
+The other methods, in particular, the more accurate, finite-elements and bilinear interpolators are noticeably more diffusive.
+In the F16↔H32 grid setup, the 4-nearest-neighbour was much less diffusive than depicted here for the O16↔O32 setup, however,
+the 4-nearest-neighbour was again more diffusive than the nearest-neighbour.
+
+.. container:: m-row
+
+    .. container:: m-col-l-6
+
+        .. figure:: {static}/tools/img/diffusion_init.png
+            :target: {static}/tools/img/diffusion_init.png
+            :height: 150 px
+
+        .. figure:: {static}/tools/img/diffusion_1of3.png
+            :target: {static}/tools/img/diffusion_1of3.png
+            :height: 450 px
+
+    .. container:: m-col-l-6
+
+        .. figure:: {static}/tools/img/diffusion_3of3.png
+            :target: {static}/tools/img/diffusion_3of3.png
+            :height: 150 px
+
+
+
+        .. figure:: {static}/tools/img/diffusion_2of3.png
+            :target: {static}/tools/img/diffusion_2of3.png
+            :height: 450 px
