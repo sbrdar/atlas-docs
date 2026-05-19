@@ -34,7 +34,7 @@ Atlas can output meshes and fields in the `Gmsh <https://gmsh.info>`_ `format <h
 This is a great format to visualise low resolution meshes and fields with the interactive Gmsh viewer.
 However, it becomes sluggish to unresponsive for high resolution meshes and fields.
 
-Using ``atlas-meshgen`` and ``atlas-interpolation`` tools, one can generate meshes and interpolation weights in Gmsh format, and visualise them with the interactive Gmsh viewer.
+Using ``atlas-meshgen`` and ``atlas-interpolation`` tools, one can generate meshes and variable field values in Gmsh format, and visualise them with the interactive Gmsh viewer.
 Here is an example of visualising a mesh with the Gmsh viewer:
 
 .. code-block:: bash

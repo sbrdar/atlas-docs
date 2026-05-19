@@ -57,19 +57,27 @@ Whilst the conservative remapping method still require that mesh cells form a co
 Experimental order of converge of interpolation methods
 -------------------------------------------------------
 
-The figure below shows the convergence of interpolation errors for different interpolation methods available in Atlas. Apart from the ``grid-box-average`` method,
+The figures below show the convergence of interpolation errors for different interpolation methods available in Atlas. Apart from the ``grid-box-average`` method,
 which requires a semi-structured grid of Atlas type ``StructuredGrid``, the other methods are available on any kind of unstructured grids.
 
-.. figure:: {static}/tools/img/atlas_interpolators_convergence.png
-    :target: {static}/tools/img/atlas_interpolators_convergence.png
-    :height: 400 px
-
-The figure below shows the experimental order of convergence of different interpolators. The Atlas implementations confirms the formal order of convergence 
+The figures below show the experimental order of convergence of different interpolators. The Atlas implementations confirms the formal order of convergence
 from these interpolation methods.
 
-.. figure:: {static}/tools/img/atlas_interpolators_eoc.png
-    :target: {static}/tools/img/atlas_interpolators_eoc.png
-    :height: 400 px
+.. container:: m-row
+
+    .. container:: m-col-l-6
+
+        .. figure:: {static}/tools/img/atlas_interpolators_convergence.png
+            :target: {static}/tools/img/atlas_interpolators_convergence.png
+            :height: 400 px
+
+    .. container:: m-col-l-6
+
+        .. figure:: {static}/tools/img/atlas_interpolators_eoc.png
+            :target: {static}/tools/img/atlas_interpolators_eoc.png
+            :height: 400 px
+
+
 
 Timings of interpolation methods with and without caching
 ---------------------------------------------------------
