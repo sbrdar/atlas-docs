@@ -11,13 +11,13 @@ The command-line tool ``atlas-grids`` provides information on grids supported by
 Usage
 -----
 
-.. code :: shell
+.. code-block:: shell
 
     $ atlas-grids <grid> [OPTION]... [--help]
 
 For a list of supported grids, use
 
-.. code :: shell
+.. code-block:: shell
 
     $ atlas-grids --list
 

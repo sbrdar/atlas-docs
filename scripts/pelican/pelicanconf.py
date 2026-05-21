@@ -114,7 +114,8 @@ M_LINKS_FOOTER3 += [('GitHub', 'https://github.com/ecmwf/atlas'),
 M_LINKS_FOOTER4 = []#('Ha', 'contact/')]
 
 M_CSS_FILES = ['https://fonts.googleapis.com/css?family=Source+Code+Pro:400,400i,600%7CSource+Sans+Pro:400,400i,600,600i&subset=latin-ext',
-               'static/m-dark.css']
+               'static/m-dark.css',
+               'static/atlas-tabs.css']
 
 M_FINE_PRINT = """
 | Atlas. Copyright © `ECMWF <http://ecmwf.int>`_. Site powered by `Pelican <https://getpelican.com>`_
