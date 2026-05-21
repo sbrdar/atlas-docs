@@ -194,9 +194,8 @@ on the cmake configuration command line.
   </div>
   <div class="atlas-tabs__panel atlas-tabs__panel--python">
 
-.. code:: python
-
-    # Missing Python code example.
+.. include:: project_bundle_atlas/src/hello-atlas.py
+  :code: python
 
 .. raw:: html
 

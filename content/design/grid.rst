@@ -214,7 +214,14 @@ Following code snippets shows how to construct any grid from either a configurat
 
     .. code:: python
 
-        # Missing Python code example.
+        import atlas
+
+        f16_config = atlas.Config()
+        f16_config.set("type", "regular_gaussian")
+        f16_config.set("N", 16)
+
+        F16 = atlas.Grid(f16_config)  # regular Gaussian grid (F16)
+        N16 = atlas.Grid("N16")       # classic reduced Gaussian grid (N16)
 
     .. raw:: html
 
